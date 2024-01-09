@@ -6,6 +6,7 @@ import com.nhnacademy.springmvc.exception.StudentNotFoundException;
 import com.nhnacademy.springmvc.exception.ValidationFailedException;
 import com.nhnacademy.springmvc.repository.StudentRepository;
 import java.util.Objects;
+import javax.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
@@ -56,7 +57,7 @@ public class StudentController {
 
     @PostMapping("{studentId}/modify")
     public String modifyStudent(@ModelAttribute Student student,
-                                @ModelAttribute StudentModifyRequest studentModifyRequest,
+                                @Valid @ModelAttribute StudentModifyRequest studentModifyRequest,
                                 BindingResult bindingResult,
                                 ModelMap modelMap){
         if (bindingResult.hasErrors()) {
