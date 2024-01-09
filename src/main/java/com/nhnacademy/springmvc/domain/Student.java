@@ -1,6 +1,10 @@
 package com.nhnacademy.springmvc.domain;
 
+import lombok.Getter;
+
+@Getter
 public class Student {
+
     private long id;
     private String name;
     private String email;

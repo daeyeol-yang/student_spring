@@ -4,7 +4,9 @@ import com.nhnacademy.springmvc.config.RootConfig;
 import com.nhnacademy.springmvc.config.WebConfig;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
+
 public class WebAppInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+
 
     @Override
     protected String[] getServletMappings(){ return  new String[] {"/"};}
