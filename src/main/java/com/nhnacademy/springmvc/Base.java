@@ -1,2 +1,4 @@
-package com.nhnacademy.springmvc.validator;public interface Base {
+package com.nhnacademy.springmvc;
+
+public interface Base {
 }

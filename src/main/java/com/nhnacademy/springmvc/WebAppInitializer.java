@@ -1,4 +1,4 @@
-package com.nhnacademy.springmvc.validator;
+package com.nhnacademy.springmvc;
 
 import com.nhnacademy.springmvc.config.RootConfig;
 import com.nhnacademy.springmvc.config.WebConfig;
