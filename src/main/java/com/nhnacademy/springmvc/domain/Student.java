@@ -7,4 +7,15 @@ public class Student {
     private int score;
     private String comment;
 
+    public static Student create(Long id,String name, String email, int score, String comment){
+        return new Student(id,name,email,score,comment);
+    }
+
+    public Student(Long id, String name, String email, int score, String comment) {
+        this.id =id;
+        this.name = name;
+        this.email = email;
+        this.score = score;
+        this.comment = comment;
+    }
 }
