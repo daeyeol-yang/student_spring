@@ -13,25 +13,16 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 @ControllerAdvice
 public class WebControllerAdvice {
     @ExceptionHandler(Exception.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
     public String handleException(Exception ex, Model model) {
 
 
         model.addAttribute("exception", ex);
-        return "error";
+        return "thymeleaf/error";
     }
 
-    @ExceptionHandler(StudentNotFoundException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleStdudentNotFoundExeption(StudentNotFoundException ex, Model model){
-        model.addAttribute("exception", ex);
-        return "error";
-    }
 
-    @ExceptionHandler(ValidationFailedException.class)
-    @ResponseStatus(HttpStatus.NOT_FOUND)
-    public String handleValidationFailedException(ValidationFailedException ex, Model model){
-        model.addAttribute("exception", ex);
-        return "error";
-    }
+
+
 
 }

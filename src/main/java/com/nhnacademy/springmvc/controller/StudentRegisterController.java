@@ -22,12 +22,12 @@ public class StudentRegisterController {
     }
 
     @GetMapping
-    public String studentRegisterForm(){ return "studentRegister";}
+    public String studentRegisterForm(){ return "thymeleaf/studentRegister";}
 
     @PostMapping
     public ModelAndView registerStudent(@Valid @ModelAttribute StudentRegisterRequest studentRegisterRequest){
         Student student = studentRepository.register(studentRegisterRequest.getName(),studentRegisterRequest.getEmail(),studentRegisterRequest.getScore(),studentRegisterRequest.getComment());
-        ModelAndView mav = new ModelAndView("studentView");
+        ModelAndView mav = new ModelAndView("thymeleaf/studentView");
         mav.addObject("student",student);
 
         return mav;

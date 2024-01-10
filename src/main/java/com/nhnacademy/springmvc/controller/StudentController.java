@@ -7,16 +7,19 @@ import com.nhnacademy.springmvc.exception.ValidationFailedException;
 import com.nhnacademy.springmvc.repository.StudentRepository;
 import java.util.Objects;
 import javax.validation.Valid;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseStatus;
 
 @Controller
 @RequestMapping("/student")
@@ -41,6 +44,13 @@ public class StudentController {
 
     }
 
+    @ExceptionHandler(StudentNotFoundException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleStdudentNotFoundExeption(StudentNotFoundException ex, Model model){
+        model.addAttribute("exception", ex);
+        return "error";
+    }
+
     @GetMapping("/{studentId}")
     public String viewStudent(@ModelAttribute Student student, @RequestParam(name="hideScore", required = false) String hideScore , Model model){
     if(YES.equals(hideScore)) {
@@ -49,11 +59,11 @@ public class StudentController {
         }
         model.addAttribute("student",student);
 
-        return "studentView";
+        return "thymeleaf/studentView";
     }
 
     @GetMapping("{studentId}/modify")
-    public String stdentModifyForm(){return "studentModify";}
+    public String stdentModifyForm(){return "thymeleaf/studentModify";}
 
     @PostMapping("{studentId}/modify")
     public String modifyStudent(@ModelAttribute Student student,
@@ -70,7 +80,14 @@ public class StudentController {
         student.setComment(studentModifyRequest.getComment());
 
         modelMap.addAttribute("student", student);
-        return "studentView";
+        return "thymeleaf/studentView";
+    }
+
+    @ExceptionHandler(ValidationFailedException.class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    public String handleValidationFailedException(ValidationFailedException ex, Model model){
+        model.addAttribute("exception", ex);
+        return "thymeleaf/error";
     }
 
 

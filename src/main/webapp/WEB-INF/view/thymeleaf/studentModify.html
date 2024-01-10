@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form method="post" th:action="@{/student/{id}/modify(id=${student.id})}" th:object="${student}">
+    이름: <input type="text" th:field="${student.name}" /><br />
+    이메일: <input type="text" th:field="${student.email}" /><br />
+    성적: <input type="text" th:field="${student.score}" /><br />
+    평가: <textarea th:field="${student.comment}" rows="10" cols="80"></textarea><br />
+    <br />
+    <input type="submit" />
+</form>
+
+</body>
+</html>
