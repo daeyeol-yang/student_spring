@@ -48,7 +48,7 @@ public class StudentController {
     @ResponseStatus(HttpStatus.NOT_FOUND)
     public String handleStdudentNotFoundExeption(StudentNotFoundException ex, Model model){
         model.addAttribute("exception", ex);
-        return "error";
+        return "thymeleaf/error";
     }
 
     @GetMapping("/{studentId}")
