@@ -6,12 +6,15 @@
 </head>
 <body>
 <form method="post" action="/student/register">
-    이름: <input type="text" name="name" /><br />
-    이메일: <input type="text" name="email" /><br />
-    성적: <input type="text" name="score" /><br />
-    평가: <textarea name="comment" rows="10" cols="80"></textarea><br />
+ <p th:text="#{Name}"> </p>  <input type="text" name="name" /><br />
+    <p th:text="#{Email}"></p> <input type="text" name="email" /><br />
+  <p th:text="#{Score}"></p>   <input type="text" name="score" /><br />
+  <p th:text="#{Comment}"></p>   <textarea name="comment" rows="10" cols="80"></textarea><br />
     <br />
     <input type="submit" />
 </form>
+
+<a th:href="@{'?locale=ko'}">ko</a><br />
+<a th:href="@{'?locale=en'}">en</a><br />
 </body>
 </html>

@@ -3,21 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 10px;
+            text-decoration: none;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-<p>이름: <span th:text="${student.name}"></span></p>
-<p>이메일: <span th:text="${student.email}"></span></p>
+<table>
+    <tr>
+        <td th:text="#{Name}"></td>
+        <td><span th:text="${student.name}"></span></td>
+    </tr>
+    <tr>
+        <td th:text="#{Email}"></td>
+        <td><span th:text="${student.email}"></span></td>
+    </tr>
+    <th:block th:if="${hideScore == null || !hideScore}">
+        <tr>
+            <td th:text="#{Score}"></td>
+            <td><span th:text="${student.score}"></span></td>
+        </tr>
 
-
-
-<th:block th:if="${hideScore == null || !hideScore}">
-    <p>성적: <span th:text="${student.score}"></span></p>
-</th:block>
-<p>평가: <span th:text="${student.comment}"></span></p>
-
+    <tr>
+        <td th:text="#{Comment}"></td>
+        <td><span th:text="${student.comment}"></span></td>
+    </tr>
+    </th:block>
+</table>
 
 <br />
-<a th:href="@{/student/{id}/modify(id=${student.id})}">정보 수정</a><br />
+<a th:href="@{/student/{id}/modify(id=${student.id})}">정보수정</a><br />
+<a th:href="@{'?locale=ko'}">ko</a><br />
+<a th:href="@{'?locale=en'}">en</a><br />
 </body>
 </html>
+
+
+
+
+
 
