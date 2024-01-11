@@ -48,7 +48,7 @@ public class LoginController {
             modelMap.put("id", session.getId());
             return "thymeleaf/loginSuccess";
         } else {
-            return "redirect:thymeleaf//login";
+            return "redirect:/login";
         }
     }
 

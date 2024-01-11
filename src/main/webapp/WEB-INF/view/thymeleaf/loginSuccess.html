@@ -4,6 +4,14 @@
     <title>Login Success</title>
 </head>
 <body>
-Login Success: id=<span th:text="${id}"></span>
+안녕하세요 main 페이지입니다.
+
+<a th:href="@{/student/register}">학생등록</a><br>
+<a th:href="@{/student/1/modify}">학생수정</a>
+
+<a th:href="@{/student/1}">학생보기</a>
+
+<a th:href="@{/logout}">로그아웃</a>
+
 </body>
 </html>
