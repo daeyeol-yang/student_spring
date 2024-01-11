@@ -1,7 +1,7 @@
 package com.nhnacademy.springmvc.config;
 
 import com.nhnacademy.springmvc.controller.ControllerBase;
-import com.nhnacademy.springmvc.interceptor.LoginInterceptor;
+import com.nhnacademy.springmvc.interceptor.LoginCheckInterceptor;
 import java.util.Locale;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContextAware;
@@ -30,9 +30,9 @@ public class WebConfig implements WebMvcConfigurer, ApplicationContextAware, Mes
     private ApplicationContext applicationContext;
     private MessageSource messageSource;
 
-    private final LoginInterceptor loginInterceptor;
+    private final LoginCheckInterceptor loginInterceptor;
 
-    public WebConfig(LoginInterceptor loginInterceptor) {
+    public WebConfig(LoginCheckInterceptor loginInterceptor) {
         this.loginInterceptor = loginInterceptor;
     }
 
