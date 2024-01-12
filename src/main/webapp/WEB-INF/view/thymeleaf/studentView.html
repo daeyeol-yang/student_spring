@@ -58,11 +58,18 @@
     </th:block>
 </table>
 
-<br />
-<a th:href="@{/student/{id}/modify(id=${student.id})}">정보수정</a><br />
-<a th:href="@{/logout}">로그아웃</a>
-<a th:href="@{'?locale=ko'}">ko</a><br />
-<a th:href="@{'?locale=en'}">en</a><br />
+
+
+<a th:href="@{/student/{id}/modify(id=${student.id})}">정보수정</a><br>
+<th:block th:if="${hideScore != null && hideScore}">
+
+    <a th:href="@{'?locale=ko&hideScore=yes'}">ko</a><br />
+    <a th:href="@{'?locale=en&hideScore=yes'}">en</a><br />
+</th:block>
+<th:block th:if="${hideScore == null || !hideScore}">
+    <a th:href="@{'?locale=ko'}">ko</a><br />
+    <a th:href="@{'?locale=en'}">en</a><br />
+</th:block>
 </body>
 </html>
 

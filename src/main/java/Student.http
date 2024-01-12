@@ -1,0 +1,35 @@
+#GET http://localhost:8080/students/1?hideScore=yes
+GET http://localhost:8080/students/1
+Accept: application/json
+
+###
+
+POST http://localhost:8080/students
+Content-Type: application/json
+
+{
+  "name": "김성현",
+  "email": "newemail@example.com",
+  "score": 0,
+  "comment": "헬스가고싶다"
+}
+
+###
+GET http://localhost:8080/students/2
+Accept: application/json
+
+###
+
+PUT http://localhost:8080/students/1/modify
+Content-Type: application/json
+
+{
+  "studentId": 1,
+  "name": "강건",
+  "email": "newemail@example.com",
+  "score": 0,
+  "comment": "안녕하세요"
+}
+###
+GET http://localhost:8080/students/1
+Accept: application/json

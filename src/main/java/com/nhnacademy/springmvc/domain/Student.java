@@ -16,6 +16,9 @@ public class Student {
     @Setter
     private String comment;
 
+    public Student() {
+    }
+
     public static Student create(Long id,String name, String email, int score, String comment){
         return new Student(id,name,email,score,comment);
     }

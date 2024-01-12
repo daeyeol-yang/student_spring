@@ -9,4 +9,6 @@ public interface StudentRepository {
 
     Student getStudent(long id);
 
+
+    Student modify(Student student);
 }
